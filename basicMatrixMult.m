@@ -3,13 +3,25 @@
 % sample c columns of A and corresponding rows of B
 % sampleType corresponds to those in sample.m
 
-function C_approx = basicMatrixMult(A, B, sampleType, parameterList);
+function [C_approx, sampleSize] = basicMatrixMult(A, B, sampleType, parameterList);
 
 [r, n] = size(A);
-c = round(log10(n));
+epsilon = 1e-2; delta = 1e-2;
 
 % ------------- multiplication routing -------------
-[pdf, cdf] = sample(A,B,sampleType,parameterList);
+[pdf, cdf, beta] = sample(A,B,sampleType,parameterList);
+
+if beta <= 1
+  yita = 1+sqrt(8/beta*log10(1/delta));
+  c = yita^2 / beta / epsilon;
+  if c > n
+    'c > n'
+    return;
+  end
+else
+  c = round(log10(n));
+end
+
 ind = datasample(1:length(pdf), c, 'Replace', false, 'Weights', pdf);
 ind = sort(ind); % need to be sorted thus add them in orders to C and R
 
@@ -20,5 +32,6 @@ for i = 1:c
 end
 
 C_approx = C*R; 
+sampleSize = c;
   
 return;

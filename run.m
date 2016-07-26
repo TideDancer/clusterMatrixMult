@@ -1,5 +1,5 @@
 % random matrix test 
-dim = 2^8;
+dim = 2^10;
 
 %A = squareMatrixGen(dim, 'dense', 'normal');
 %B = squareMatrixGen(dim, 'dense', 'normal');
@@ -13,15 +13,21 @@ cond_num = 10^k;
 A = gallery('randsvd', dim ,cond_num, randsvd_mod);
 B = gallery('randsvd', dim ,cond_num, randsvd_mod);
 
-Z = zeros(dim); I = eye(dim); O = ones(2*dim).*1e-8;
+Z = zeros(dim); I = eye(dim); O = ones(2*dim).*1e-8; 
+R = rand(dim).*1e-8; alphaB = randn(dim)*1e8;
+% A = [alphaB R; Z I];
+% [mu, row] = coherence(A)
+% return;
+
+
 A = [A Z; Z I] + O;
 B = [B Z; Z I] + O;
 
 tic;
-C_approx1 = basicMatrixMult(A, B, 'column2norm', 1); % coloum 2-norm based sampling
+[C_approx1, numSample] = basicMatrixMult(A, B, 'column2norm', 1); % coloum 2-norm based sampling
 toc;
 tic;
-C_approx2 = clusterMult(A, B, []);
+C_approx2 = clusterMult(A, B, numSample);
 toc;
 
 
