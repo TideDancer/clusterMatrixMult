@@ -42,7 +42,7 @@ end
 ind = sort(ind); % need to be sorted thus add them in orders to C and R
 C = []; R = [];
 
-% since sample 1 element in each cluster, probability for each cluster is 1/c, thus each col./sqrt(p*1/c) = col./1 = col itself
+% since sample 1 element in each cluster, probability for each cluster is 1/c, thus each col./sqrt(p*c) = col./1 = col itself
 for i = 1:numCluster
   C = [C  A(:,ind(i))];
   R = [R; B(ind(i),:)];

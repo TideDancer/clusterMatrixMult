@@ -1,5 +1,5 @@
 % random matrix test 
-dim = 2^10;
+dim = 2^9;
 
 %A = squareMatrixGen(dim, 'dense', 'normal');
 %B = squareMatrixGen(dim, 'dense', 'normal');
@@ -7,22 +7,25 @@ dim = 2^10;
 errRatio1 = []; errRatio2 = [];
 
 for randsvd_mod = 1:5
-for k = 8:8
+for k = 1:1
 cond_num = 10^k;
 
+% seed matrix
 A = gallery('randsvd', dim ,cond_num, randsvd_mod);
 B = gallery('randsvd', dim ,cond_num, randsvd_mod);
 
-Z = zeros(dim); I = eye(dim); O = ones(2*dim).*1e-8; 
+% build coherent matrix
+Z = zeros(dim); I = eye(dim); O = ones(dim).*1e-8; 
 R = rand(dim).*1e-8; alphaB = randn(dim)*1e8;
-% A = [alphaB R; Z I];
-% [mu, row] = coherence(A)
-% return;
+A = [A(1:dim/2, :); Z(1:dim/2, :)] + O;
+B = [B(:, 1:dim/2)  Z(:, 1:dim/2)] + O;
+%%%%%%%%%%%%%%%%%%%%%% try to see if given same clusters %%%%%%%%%%%%%%%%%%%%%%
 
+load('dexter.mat');
+A = dexter1; B = dexter2';
+min(leverage(A))
 
-A = [A Z; Z I] + O;
-B = [B Z; Z I] + O;
-
+% start computing
 tic;
 [C_approx1, numSample] = basicMatrixMult(A, B, 'column2norm', 1); % coloum 2-norm based sampling
 toc;

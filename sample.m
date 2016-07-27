@@ -10,21 +10,19 @@ function [pdf, cdf, valueList] = sample(A, B, type, parameterList);
 [rb, cb] = size(B);
 
 % type == 'column2norm', return p(i) = beta * A_k_column_2norm * B_k_row_2norm / sum_j(A_j_column_2norm * B_j_row_2norm)
-% beta = 1/sum(p) for normalizing sum of p to be 1
+% here set beta to be 1
 if strcmp(type, 'column2norm')
+  beta = 1;
   p = zeros(1, ca);
   p_sum = 0;
   if ca ~= rb
     return;
   end 
   for i = 1:ca
-    p(i) = norm(A(:,i)) * norm(B(i,:));
+    p(i) = beta * norm(A(:,i)) * norm(B(i,:));
     p_sum = p_sum + p(i);
   end
-  for i = 1:ca
-    p(i) = p(i)/p_sum;
-  end
-  valueList = 1/sum(p);
+  valueList = beta;
 end
 
 
