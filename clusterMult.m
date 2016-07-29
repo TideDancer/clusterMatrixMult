@@ -48,6 +48,6 @@ for i = 1:numCluster
   R = [R; B(ind(i),:)];
 end
 
-C_approx = C*R; 
+C_approx = C*R/(n/numCluster); 
   
 return;

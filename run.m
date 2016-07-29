@@ -19,18 +19,23 @@ Z = zeros(dim); I = eye(dim); O = ones(dim).*1e-8;
 R = rand(dim).*1e-8; alphaB = randn(dim)*1e8;
 A = [A(1:dim/2, :); Z(1:dim/2, :)] + O;
 B = [B(:, 1:dim/2)  Z(:, 1:dim/2)] + O;
-%%%%%%%%%%%%%%%%%%%%%% try to see if given same clusters %%%%%%%%%%%%%%%%%%%%%%
 
-load('dexter.mat');
-A = dexter1; B = dexter2';
-min(leverage(A))
+%%%% dexter %%%%%
+% load('dexter.mat');
+% A = dexter1; B = dexter2';
+% min(leverage(A))
+
+%%%% heart1 %%%%%
+load('goodwin.mat');
+A = full(Problem.A);
+B = A(randperm(end),randperm(end));
 
 % start computing
 tic;
 [C_approx1, numSample] = basicMatrixMult(A, B, 'column2norm', 1); % coloum 2-norm based sampling
 toc;
 tic;
-C_approx2 = clusterMult(A, B, numSample);
+C_approx2 = clusterMult(A, B, round(numSample));
 toc;
 
 
