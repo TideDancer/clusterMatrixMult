@@ -27,7 +27,7 @@ B = [B(:, 1:dim/2)  Z(:, 1:dim/2)] + O;
 
 %%%% heart1 %%%%%
 load('goodwin.mat');
-A = full(Problem.A);
+A = full(Problem.A)./1000;
 B = A(randperm(end),randperm(end));
 
 % start computing
@@ -35,7 +35,7 @@ tic;
 [C_approx1, numSample] = basicMatrixMult(A, B, 'column2norm', 1); % coloum 2-norm based sampling
 toc;
 tic;
-C_approx2 = clusterMult(A, B, round(numSample));
+%C_approx2 = clusterMult(A, B, round(numSample));
 toc;
 
 

@@ -6,7 +6,7 @@
 function [C_approx, sampleSize] = basicMatrixMult(A, B, sampleType, parameterList);
 
 [r, n] = size(A);
-epsilon = 1e-1; delta = 1e-1;
+epsilon = 1e-3; delta = 1e-1;
 
 % ------------- multiplication routing -------------
 [pdf, cdf, beta] = sample(A,B,sampleType,parameterList);
