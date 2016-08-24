@@ -6,10 +6,12 @@
 function [C_approx, sampleSize] = basicMatrixMult(A, B, sampleType, parameterList);
 
 [r, n] = size(A);
-epsilon = 1e-3; delta = 1e-1;
+delta = parameterList(1);
+epsilon = parameterList(2);
+beta = parameterList(3);
 
 % ------------- multiplication routing -------------
-[pdf, cdf, beta] = sample(A,B,sampleType,parameterList);
+[pdf, cdf, beta] = sample(A,B,sampleType,beta);
 
 if beta <= 1
   yita = 1+sqrt(8/beta*log10(1/delta));
@@ -35,3 +37,4 @@ C_approx = C*R;
 sampleSize = c;
   
 return;
+
