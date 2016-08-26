@@ -17,7 +17,7 @@ if beta <= 1
   yita = 1+sqrt(8/beta*log10(1/delta));
   c = round(yita^2 / beta / epsilon);
   if c > n
-    'c > n'
+    disp('c > n, so no result will be produced')
     return;
   end
 else
