@@ -12,12 +12,12 @@ For product information, visit www.mathworks.com.
 	Academic License
 
 gallery(sampling,dim),gallery(chebspec,dim,1)
-Elapsed time is 0.916863 seconds.
-Elapsed time is 2.743459 seconds.
-Elapsed time is 3.043089 seconds.
-Elapsed time is 0.060128 seconds.
-    0.1220
+Elapsed time is 1.446764 seconds.
+Elapsed time is 7.504172 seconds.
+Elapsed time is 8.194157 seconds.
+Elapsed time is 0.410312 seconds.
+    0.0952
 
-    0.0811
+    0.0782
 
 >> 

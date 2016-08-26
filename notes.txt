@@ -1,0 +1,9 @@
+1. hashing: r*a mod p -> to some scalar
+   so p buckets
+   inside bucket, do clustering
+
+2. do sampling then clustering (hierachical clustering)
+
+3. locality sensitive sampling
+
+

@@ -1,0 +1,133 @@
+/var/spool/slurmd/job331041/slurm_script: line 7: 0: command not found
+/var/spool/slurmd/job331041/slurm_script: line 8: 1: command not found
+/var/spool/slurmd/job331041/slurm_script: line 9: 2: command not found
+/var/spool/slurmd/job331041/slurm_script: line 10: 3: command not found
+/var/spool/slurmd/job331041/slurm_script: line 11: 4: command not found
+/var/spool/slurmd/job331041/slurm_script: line 12: 5: command not found
+/var/spool/slurmd/job331041/slurm_script: line 13: 6: command not found
+/var/spool/slurmd/job331041/slurm_script: line 14: 7: command not found
+/var/spool/slurmd/job331041/slurm_script: line 15: 8: command not found
+/var/spool/slurmd/job331041/slurm_script: line 16: 9: command not found
+/var/spool/slurmd/job331041/slurm_script: line 17: 10: command not found
+/var/spool/slurmd/job331041/slurm_script: line 18: 11: command not found
+/var/spool/slurmd/job331041/slurm_script: line 19: 12: command not found
+/var/spool/slurmd/job331041/slurm_script: line 20: 13: command not found
+/var/spool/slurmd/job331041/slurm_script: line 21: 14: command not found
+/var/spool/slurmd/job331041/slurm_script: line 22: 15: command not found
+/var/spool/slurmd/job331041/slurm_script: line 23: 16: command not found
+/var/spool/slurmd/job331041/slurm_script: line 24: 17: command not found
+16: {Error using isnan
+16: Out of memory. Type HELP MEMORY for your options.
+16: 
+16: Error in kmeans (line 161)
+16: wasnan = any(isnan(X),2);
+16: 
+16: Error in clusterMult (line 10)
+16: tagA = kmeans(A', numCluster);
+16: 
+16: Error in run_all (line 57)
+16: C_approx2 = clusterMult(A, B, round(numSample));
+16: } 
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: *** JOB 331296 ON cn153 CANCELLED AT 2016-08-25T12:54:20 DUE TO TIME LIMIT ***
+0: slurmstepd: *** STEP 331296.0 ON cn153 CANCELLED AT 2016-08-25T12:54:20 DUE TO TIME LIMIT ***
+0: {Output argument "C_approx" (and maybe others) not assigned during call to
+0: "basicMatrixMult".
+0: 
+0: Error in run_all (line 54)
+0: [C_approx1, numSample]= basicMatrixMult(A, B, 'column2norm', [delta, epsilon,
+0: beta]);
+0: } 
+1: {Output argument "C_approx" (and maybe others) not assigned during call to
+1: "basicMatrixMult".
+1: 
+1: Error in run_all (line 54)
+1: [C_approx1, numSample]= basicMatrixMult(A, B, 'column2norm', [delta, epsilon,
+1: beta]);
+1: } 
+srun: error: Could not find executable matlab
+srun: error: Could not find executable matlab
+srun: error: Could not find executable matlab
+srun: error: Could not find executable matlab
+srun: error: Could not find executable matlab
+srun: error: Could not find executable matlab
+2: slurmstepd: execve(): matlab: No such file or directory
+0: slurmstepd: execve(): matlab: No such file or directory
+4: slurmstepd: execve(): matlab: No such file or directory
+3: slurmstepd: execve(): matlab: No such file or directory
+1: slurmstepd: execve(): matlab: No such file or directory
+5: slurmstepd: execve(): matlab: No such file or directory
+srun: error: cn151: tasks 0-5: Exited with exit code 2
+srun: Terminating job step 335238.0
+1: {Out of memory. Type HELP MEMORY for your options.
+1: 
+1: Error in sampling (line 28)
+1: y = x(:,ones(1,n));
+1: 
+1: Error in gallery (line 233)
+1: [varargout{1:max(nargout,1)}] = F(varargin{:});
+1: 
+1: Error in run_all (line 47)
+1: A = gallery('sampling', dim);
+1: } 
+1: 
+2: {Out of memory. Type HELP MEMORY for your options.
+2: 
+2: Error in sampling (line 28)
+2: y = x(:,ones(1,n));
+2: 
+2: Error in gallery (line 233)
+2: [varargout{1:max(nargout,1)}] = F(varargin{:});
+2: 
+2: Error in run_all (line 47)
+2: A = gallery('sampling', dim);
+2: } 
+2: 
+3: {Out of memory. Type HELP MEMORY for your options.
+3: 
+3: Error in sampling (line 28)
+3: y = x(:,ones(1,n));
+3: 
+3: Error in gallery (line 233)
+3: [varargout{1:max(nargout,1)}] = F(varargin{:});
+3: 
+3: Error in run_all (line 47)
+3: A = gallery('sampling', dim);
+3: } 
+3: 
+4: {Out of memory. Type HELP MEMORY for your options.
+4: 
+4: Error in sampling (line 28)
+4: y = x(:,ones(1,n));
+4: 
+4: Error in gallery (line 233)
+4: [varargout{1:max(nargout,1)}] = F(varargin{:});
+4: 
+4: Error in run_all (line 47)
+4: A = gallery('sampling', dim);
+4: } 
+4: 
+5: {Out of memory. Type HELP MEMORY for your options.
+5: 
+5: Error in sampling (line 28)
+5: y = x(:,ones(1,n));
+5: 
+5: Error in gallery (line 233)
+5: [varargout{1:max(nargout,1)}] = F(varargin{:});
+5: 
+5: Error in run_all (line 47)
+5: A = gallery('sampling', dim);
+5: } 
+5: 
+0: {Out of memory. Type HELP MEMORY for your options.
+0: 
+0: Error in chebspec (line 38)
+0: C = (d * (ones(n+1,1,classname)./d)') ./ ...
+0: 
+0: Error in gallery (line 233)
+0: [varargout{1:max(nargout,1)}] = F(varargin{:});
+0: 
+0: Error in run_all (line 48)
+0: B = gallery('chebspec',dim,1);
+0: } 
+0: 
