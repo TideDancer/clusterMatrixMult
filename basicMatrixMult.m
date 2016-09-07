@@ -18,6 +18,7 @@ if beta <= 1
   c = round(yita^2 / beta / epsilon);
   if c > n
     disp('c > n, so no result will be produced')
+    C_approx = []; sampleSize = c;
     return;
   end
 else

@@ -12,15 +12,27 @@ tic;
 % tagA = kmeans(A', numCluster);
 
 % ------------direct hashing -------------
-% hash = rand(1,r).*numCluster;
-% tagA = mod(hash*A,numCluster);
-% tagA = tagA';
+hash = rand(1,r);
+group = abs(hash*A);
+group = round(group.*(1/min(group)));
+tagA = mod(group,numCluster);
+tagA = tagA';
 
 % ----------- projection ----------------
-rr = round(log10(r)/epsilon^2);
-disp(rr/r);
-proj = randn(rr,r)*A;
-tagA = kmeans(proj', numCluster);
+% rr = round(log10(r)/epsilon);
+% disp(rr/r);
+% proj = randn(rr,r)*A;
+% tagA = kmeans(proj', numCluster);
+
+% ----------- hash-inbucket-clustering ----------
+% numBucket = round(sqrt(numCluster));
+% hash = rand(1,r);
+% group = abs(hash*A);
+% group = round(group.*(1/min(group)));
+% bucketA = mod(group,numBucket);
+% bucketA = [bucketA', (1:n)'];
+% sortedBucket = sortrows(bucketA)
+% -------- not finished next is in-group clustering --------
 
 toc;
 
@@ -57,7 +69,7 @@ ind = sort(ind); % need to be sorted thus add them in orders to C and R
 C = []; R = [];
 
 % since sample 1 element in each cluster, probability for each cluster is 1/c, thus each col./sqrt(p*c) = col./1 = col itself
-for i = 1:numCluster
+for i = 1:length(ind)
   C = [C  A(:,ind(i))];
   R = [R; B(ind(i),:)];
 end
