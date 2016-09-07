@@ -30,7 +30,7 @@ beta = 1;
 const = 1;
 
 density = 'dense';
-distribution = 'uniform';
+distribution = 'normal';
 matrix = 'high condition';
 cond_num = 10^5;
 
@@ -54,7 +54,7 @@ tic;
 [C_approx1, numSample]= basicMatrixMult(A, B, 'column2norm', [delta, epsilon, beta]);
 toc;
 tic;
-C_approx2 = clusterMult(A, B, round(numSample));
+C_approx2 = clusterMult(A, B, [round(numSample), epsilon]);
 toc;
 
 % ------------------- compare --------------------------

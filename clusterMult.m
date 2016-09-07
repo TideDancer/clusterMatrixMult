@@ -4,10 +4,24 @@ function C_approx = clusterMult(A, B, parameterList);
 
 [r, n] = size(A);
 numCluster = parameterList(1);
+epsilon = parameterList(2);
 
 tic;
 % perform clustering
-tagA = kmeans(A', numCluster);
+% ------------direct kmenas --------------
+% tagA = kmeans(A', numCluster);
+
+% ------------direct hashing -------------
+% hash = rand(1,r).*numCluster;
+% tagA = mod(hash*A,numCluster);
+% tagA = tagA';
+
+% ----------- projection ----------------
+rr = round(log10(r)/epsilon^2);
+disp(rr/r);
+proj = randn(rr,r)*A;
+tagA = kmeans(proj', numCluster);
+
 toc;
 
 % put [idx of original column, tag column] together to perform sampling
