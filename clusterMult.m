@@ -14,7 +14,7 @@ tic;
 % ------------direct hashing -------------
 hash = rand(1,r);
 group = abs(hash*A);
-group = round(group.*(1/min(group)));
+group = round((group-min(group)+1).*numCluster/(max(group) - min(group)))
 tagA = mod(group,numCluster);
 tagA = tagA';
 

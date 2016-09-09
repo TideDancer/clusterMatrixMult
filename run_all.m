@@ -30,7 +30,7 @@ beta = 1;
 const = 1;
 
 density = 'dense';
-distribution = 'normal';
+distribution = 'uniform';
 matrix = 'high condition';
 cond_num = 10^5;
 

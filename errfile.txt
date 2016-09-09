@@ -240,3 +240,8 @@ srun: Terminating job step 340899.0
 4: beta]);
 4: } 
 4: 
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: *** JOB 340987 ON cn188 CANCELLED AT 2016-09-07T12:02:10 ***
+0: slurmstepd: *** JOB 340902 ON cn325 CANCELLED AT 2016-09-07T12:10:18 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: *** STEP 340902.0 ON cn325 CANCELLED AT 2016-09-07T12:10:18 DUE TO TIME LIMIT ***
