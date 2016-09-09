@@ -30,7 +30,7 @@ beta = 1;
 const = 1;
 
 density = 'dense';
-distribution = 'uniform';
+distribution = 'normal';
 matrix = 'high condition';
 cond_num = 10^5;
 
@@ -40,13 +40,13 @@ cond_num = 10^5;
 % disp('gallery(randsvd, dim ,cond_num, 3)');
 
 % ------- square matrix ------
-A = squareMatrixGen(dim, density, distribution);
-B = squareMatrixGen(dim, density, distribution);
+% A = squareMatrixGen(dim, density, distribution);
+% B = squareMatrixGen(dim, density, distribution);
 
 %% ------- crazy matrix --------
-%A = gallery('sampling', dim);
-%B = gallery('chebspec',dim,1);
-%disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
+A = gallery('sampling', dim);
+B = gallery('chebspec',dim,1);
+disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
 
 
 % start computing

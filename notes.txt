@@ -1,3 +1,4 @@
+
 1. hashing: r*a mod p -> to some scalar
    so p buckets
    inside bucket, do clustering
@@ -7,3 +8,6 @@
 3. locality sensitive sampling
 
 
+performance:
+1. direct hashing accuracy is too bad
+2. 

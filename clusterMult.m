@@ -3,7 +3,7 @@
 function C_approx = clusterMult(A, B, parameterList);
 
 [r, n] = size(A);
-numCluster = parameterList(1);
+numCluster = parameterList(1)
 epsilon = parameterList(2);
 
 tic;
@@ -13,13 +13,13 @@ tic;
 
 % ------------direct hashing -------------
 hash = rand(1,r);
-group = abs(hash*A);
-group = round((group-min(group)+1).*numCluster/(max(group) - min(group)))
+group = hash*A;
+group = round(group.* numCluster / (max(group)-min(group)) - min(group));
 tagA = mod(group,numCluster);
 tagA = tagA';
 
 % ----------- projection ----------------
-% rr = round(log10(r)/epsilon);
+% rr = round(log10(r)/epsilon^2);
 % disp(rr/r);
 % proj = randn(rr,r)*A;
 % tagA = kmeans(proj', numCluster);
