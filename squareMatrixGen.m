@@ -8,21 +8,15 @@
 
 % output: generated squared matrix
 
-function M = squareMatrixGen(dim, type, dist, parameterList);
-
-n = log2(dim);
-n = round(n);
-n = 2^n;
+function M = MatrixGen(r, c, type, dist, parameterList);
 
 if strcmp(type, 'dense')
 
   if strcmp(dist, 'normal')
-    M = randn(n);
+    M = randn(r,c);
 
   elseif strcmp(dist, 'uniform')
-    M = rand(n);
-
-  end
+    M = rand(r,c);
 
 
 elseif strcmp(type, 'sparse')

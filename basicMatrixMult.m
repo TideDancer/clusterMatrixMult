@@ -11,18 +11,17 @@ epsilon = parameterList(2);
 beta = parameterList(3);
 
 % ------------- multiplication routing -------------
-[pdf, cdf, beta] = sample(A,B,sampleType,beta);
+[pdf, cdf] = sample(A,B,sampleType,beta);
 
-if beta <= 1
-  yita = 1+sqrt(8/beta*log10(1/delta));
-  c = round(yita^2 / beta / epsilon);
-  if c > n
-    disp('c > n, so no result will be produced')
-    C_approx = []; sampleSize = c;
-    return;
-  end
-else
-  c = round(log10(n));
+if beta > 1
+  beta = 1;
+end
+yita = 1+sqrt(8/beta*log10(1/delta));
+c = round(yita^2 / beta / epsilon^2);
+if c > n
+  disp('c > n, so no result will be produced')
+  C_approx = []; sampleSize = c;
+  return;
 end
 
 ind = datasample(1:length(pdf), c, 'Replace', false, 'Weights', pdf);

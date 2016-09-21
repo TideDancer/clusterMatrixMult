@@ -1,12 +1,17 @@
 % random matrix test 
+clear;
+delta = 1e-2;  % failure probability
+epsilon = 1e-2; % error norm <= epsilon ||A|| ||B||
+beta = 1;
+const = 1;
 
-%A = squareMatrixGen(dim, 'dense', 'normal');
-%B = squareMatrixGen(dim, 'dense', 'normal');
+matrix = 'high condition';
+cond_num = 10^5;
 
-% seed matrix
-% A = gallery('randsvd', dim ,cond_num, randsvd_mod);
-% B = gallery('randsvd', dim ,cond_num, randsvd_mod);
-% 
+r = 2^7;
+c = 2^20;
+
+tic;
 % % build coherent matrix
 % Z = zeros(dim); I = eye(dim); O = ones(dim).*1e-8; 
 % R = rand(dim).*1e-8; alphaB = randn(dim)*1e8;
@@ -23,31 +28,30 @@
 % A = full(Problem.A)./1000;
 % B = A(randperm(end),randperm(end));
 
-
-delta = 1/dim;  % failure probability
-epsilon = 1e-1; % error norm <= epsilon ||A|| ||B||
-beta = 1;
-const = 1;
-
-density = 'dense';
-distribution = 'normal';
-matrix = 'high condition';
-cond_num = 10^5;
-
 % ------- geometrically distributed singular values ------
 % A = gallery('randsvd', dim ,cond_num, 3);
 % B = gallery('randsvd', dim ,cond_num, 3);
 % disp('gallery(randsvd, dim ,cond_num, 3)');
 
-% ------- square matrix ------
-% A = squareMatrixGen(dim, density, distribution);
-% B = squareMatrixGen(dim, density, distribution);
+% ------- randn matrix ------
+Acell = cell(1,16); Bcell = cell(1,16);
+parfor i=1:16
+  Acell{i} = randn(r,c);
+  Bcell{i} = randn(c,r);
+end
+A = []; B = [];
+for i = 1:16
+  A = [A;Acell{i}];
+  B = [B,Bcell{i}];
+end 
 
 %% ------- crazy matrix --------
-A = gallery('sampling', dim);
-B = gallery('chebspec',dim,1);
-disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
+% A = gallery('sampling', dim);
+% B = gallery('chebspec',dim,1);
+% disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
 
+toc;
+disp('generating done');
 
 % start computing
 tic;
