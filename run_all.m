@@ -8,7 +8,7 @@ const = 1;
 matrix = 'high condition';
 cond_num = 10^5;
 
-r = 2^7;
+r = 2^6;
 c = 2^20;
 
 tic;

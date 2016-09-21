@@ -8,4 +8,14 @@
 To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
  
+c > n, so no result will be produced
+Elapsed time is 0.303969 seconds.
+
+numCluster =
+
+        3490
+
+Elapsed time is 0.042760 seconds.
+Elapsed time is 1.327833 seconds.
+Elapsed time is 0.111133 seconds.
 >> 

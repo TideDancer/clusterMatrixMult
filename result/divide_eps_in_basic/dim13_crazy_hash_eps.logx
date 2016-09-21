@@ -8,4 +8,18 @@
 To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
  
+gallery(sampling,dim),gallery(chebspec,dim,1)
+Elapsed time is 7.110229 seconds.
+
+numCluster =
+
+   435
+
+Elapsed time is 0.052369 seconds.
+Elapsed time is 3.373947 seconds.
+Elapsed time is 51.354385 seconds.
+    0.0566
+
+    0.0541
+
 >> 

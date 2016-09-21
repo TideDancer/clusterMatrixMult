@@ -8,13 +8,18 @@
 To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
  
-gallery(randsvd, dim ,cond_num, 3)
-Elapsed time is 1.154498 seconds.
-Elapsed time is 200.595490 seconds.
-Elapsed time is 201.537396 seconds.
-Elapsed time is 0.898289 seconds.
-    0.0461
+gallery(sampling,dim),gallery(chebspec,dim,1)
+Elapsed time is 1.090422 seconds.
 
-    0.0214
+numCluster =
+
+   378
+
+Elapsed time is 0.004573 seconds.
+Elapsed time is 0.320781 seconds.
+Elapsed time is 0.817545 seconds.
+    0.0952
+
+    0.0952
 
 >> 
