@@ -278,3 +278,54 @@ srun: error: cn194: tasks 1-2: Killed
 5: 
 srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
 slurmstepd: *** JOB 351227 ON cn253 CANCELLED AT 2016-09-22T14:37:37 ***
+srun: error: cn195: task 0: Killed
+srun: Terminating job step 351302.0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+0: slurmstepd: *** STEP 351302.0 ON cn195 CANCELLED AT 2016-09-22T14:54:02 ***
+srun: error: cn195: tasks 1-5: Killed
+srun: error: cn237: task 0: Killed
+srun: Terminating job step 351301.0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+0: slurmstepd: *** STEP 351301.0 ON cn237 CANCELLED AT 2016-09-22T14:54:15 ***
+0: slurmstepd: *** STEP 351301.0 ON cn237 CANCELLED AT 2016-09-22T14:54:15 ***
+srun: error: cn237: tasks 1-5: Killed
+srun: error: Duplicate record for task 5
+srun: error: Line 7 of configuration file run3.conf invalid
+srun: error: cn237: task 1: Killed
+srun: Terminating job step 351313.0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+0: slurmstepd: *** STEP 351313.0 ON cn237 CANCELLED AT 2016-09-22T14:59:35 ***
+srun: error: cn237: tasks 0,2-7: Killed
+srun: error: cn195: task 2: Killed
+srun: Terminating job step 351316.0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+0: slurmstepd: *** STEP 351316.0 ON cn195 CANCELLED AT 2016-09-22T15:00:31 ***
+srun: error: cn195: task 0: Killed
+srun: error: cn195: tasks 1,3-7: Killed
+3: {Error using *
+3: Out of memory. Type HELP MEMORY for your options.
+3: 
+3: Error in run_sample (line 47)
+3: C = A*B;
+3: } 
+3: 
+1: {Error using *
+1: Out of memory. Type HELP MEMORY for your options.
+1: 
+1: Error in run_sample (line 47)
+1: C = A*B;
+1: } 
+1: 
+srun: error: cn195: task 0: Killed
+srun: Terminating job step 351320.0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+0: slurmstepd: *** STEP 351320.0 ON cn195 CANCELLED AT 2016-09-22T15:01:26 ***
+srun: error: cn195: tasks 1,3: Killed
+srun: error: cn195: tasks 2,4-7: Killed
+srun: error: cn195: task 1: Killed
+srun: Terminating job step 351322.0
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+00: slurmstepd: *** STEP 351322.0 ON cn195 CANCELLED AT 2016-09-22T15:02:39 ***
+srun: error: cn195: tasks 0,2-9: Killed
+srun: error: cn195: tasks 10-11: Killed
+srun: error: cn195: tasks 12-15: Killed

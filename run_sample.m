@@ -7,8 +7,8 @@ const = 1;
 matrix = 'high condition';
 cond_num = 10^5;
 
-r = 2^15;
-c = 2^15;
+r = 2^14;
+c = 2^14;
 
 % % build coherent matrix
 % Z = zeros(dim); I = eye(dim); O = ones(dim).*1e-8; 
