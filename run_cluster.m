@@ -11,7 +11,6 @@ cond_num = 10^5;
 r = 2^15;
 c = 2^15;
 
-tic;
 % % build coherent matrix
 % Z = zeros(dim); I = eye(dim); O = ones(dim).*1e-8; 
 % R = rand(dim).*1e-8; alphaB = randn(dim)*1e8;
@@ -42,31 +41,28 @@ B = randn(r,c);
 % B = gallery('chebspec',dim,1);
 % disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
 
-toc;
 disp('generating done');
 
-% start computing
-tic;
-[C_approx1, numSample]= basicMatrixMult(A, B, 'column2norm', [delta, epsilon, beta]);
-toc;
-tic;
-C_approx2 = clusterMult(A, B, [round(numSample), epsilon]);
-toc;
-
-% ------------------- compare --------------------------
+disp('direct mult');
 tic;
 C = A*B;
 toc;
+disp('-----------------------');
 A_norm = norm(A, 'fro');
 B_norm = norm(B, 'fro');
 AB_norm = A_norm * B_norm;
 C_norm = norm(C, 'fro');
 
-error1 = C - C_approx1;
-error1_norm = norm(error1, 'fro');
-disp(error1_norm/AB_norm);
-
-error2 = C - C_approx2;
-error2_norm = norm(error2, 'fro');
-disp(error2_norm/AB_norm);
+% start computing
+sampleSize = 2^sampleDim;
+disp(sampleSize);
+disp('-----------------------');
+for i = 1:10
+  tic;
+  C_approx1 = clusterMult(A, B, [sampleSize, epsilon]));
+  toc;
+  error1 = C - C_approx1;
+  error1_norm = norm(error1, 'fro');
+  disp(error1_norm/AB_norm);
+end
 
