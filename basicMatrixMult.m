@@ -6,7 +6,7 @@
 function [C_approx] = basicMatrixMult(A, B, sampleType, parameterList);
 
 [r, n] = size(A);
-sampleSize = parameterList(1)
+sampleSize = parameterList(1);
 beta = parameterList(2);
 
 % ------------- multiplication routing -------------
@@ -27,9 +27,9 @@ ind = datasample(1:length(pdf), sampleSize, 'Replace', false, 'Weights', pdf);
 ind = sort(ind); % need to be sorted thus add them in orders to C and R
 
 C = []; R = [];
-for i = 1:c
-  C = [C  A(:,ind(i))./sqrt(c*pdf(ind(i)))];
-  R = [R; B(ind(i),:)./sqrt(c*pdf(ind(i)))];
+for i = 1:sampleSize
+  C = [C  A(:,ind(i))./sqrt(sampleSize*pdf(ind(i)))];
+  R = [R; B(ind(i),:)./sqrt(sampleSize*pdf(ind(i)))];
 end
 
 C_approx = C*R; 

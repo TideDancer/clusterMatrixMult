@@ -1,5 +1,4 @@
 % random matrix test 
-clear;
 delta = 1e-2;  % failure probability
 epsilon = 1e-2; % error norm <= epsilon ||A|| ||B||
 beta = 1;
@@ -57,12 +56,36 @@ C_norm = norm(C, 'fro');
 sampleSize = 2^sampleDim;
 disp(sampleSize);
 disp('-----------------------');
-for i = 1:10
-  tic;
-  C_approx1 = basicMatrixMult(A, B, 'column2norm', [sampleSize, delta]);
-  toc;
-  error1 = C - C_approx1;
-  error1_norm = norm(error1, 'fro');
-  disp(error1_norm/AB_norm);
-end
+for k = 1:3
+  % ------- randn matrix ------
+  clear A;
+  clear B;
+  A = randn(r,c);
+  B = randn(r,c);
 
+  disp('generating done');
+  disp('direct mult');
+  tic;
+  C = A*B;
+  toc;
+  disp('-----------------------');
+  A_norm = norm(A, 'fro');
+  B_norm = norm(B, 'fro');
+  AB_norm = A_norm * B_norm;
+  C_norm = norm(C, 'fro');
+
+  for i = 1:10
+    % ------- randn matrix ------
+    clear A;
+    clear B;
+    A = randn(r,c);
+    B = randn(r,c);
+  
+    tic;
+    C_approx1 = basicMatrixMult(A, B, 'column2norm', [sampleSize, delta]);
+    toc;
+    error1 = C - C_approx1;
+    error1_norm = norm(error1, 'fro');
+    disp(error1_norm/AB_norm);
+  end
+end

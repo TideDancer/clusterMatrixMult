@@ -3,7 +3,7 @@
 function C_approx = clusterMult(A, B, parameterList);
 
 [r, n] = size(A);
-numCluster = parameterList(1)
+numCluster = parameterList(1);
 epsilon = parameterList(2);
 
 tic;

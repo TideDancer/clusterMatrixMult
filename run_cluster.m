@@ -1,5 +1,4 @@
 % random matrix test 
-clear;
 delta = 1e-2;  % failure probability
 epsilon = 1e-2; % error norm <= epsilon ||A|| ||B||
 beta = 1;
@@ -32,37 +31,40 @@ c = 2^15;
 % B = gallery('randsvd', dim ,cond_num, 3);
 % disp('gallery(randsvd, dim ,cond_num, 3)');
 
-% ------- randn matrix ------
-A = randn(r,c);
-B = randn(r,c);
-
 %% ------- crazy matrix --------
 % A = gallery('sampling', dim);
 % B = gallery('chebspec',dim,1);
 % disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
 
-disp('generating done');
-
-disp('direct mult');
-tic;
-C = A*B;
-toc;
-disp('-----------------------');
-A_norm = norm(A, 'fro');
-B_norm = norm(B, 'fro');
-AB_norm = A_norm * B_norm;
-C_norm = norm(C, 'fro');
-
 % start computing
 sampleSize = 2^sampleDim;
 disp(sampleSize);
 disp('-----------------------');
-for i = 1:10
+for k = 1:3
+  % ------- randn matrix ------
+  clear A;
+  clear B;
+  A = randn(r,c);
+  B = randn(r,c);
+
+  disp('generating done');
+  disp('direct mult');
   tic;
-  C_approx1 = clusterMult(A, B, [sampleSize, epsilon]));
+  C = A*B;
   toc;
-  error1 = C - C_approx1;
-  error1_norm = norm(error1, 'fro');
-  disp(error1_norm/AB_norm);
+  disp('-----------------------');
+  A_norm = norm(A, 'fro');
+  B_norm = norm(B, 'fro');
+  AB_norm = A_norm * B_norm;
+  C_norm = norm(C, 'fro');
+
+  for i = 1:10
+    tic;
+    C_approx1 = clusterMult(A, B, [sampleSize, epsilon]);
+    toc;
+    error1 = C - C_approx1;
+    error1_norm = norm(error1, 'fro');
+    disp(error1_norm/AB_norm);
+  end
 end
 

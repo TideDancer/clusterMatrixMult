@@ -276,3 +276,5 @@ srun: error: cn194: tasks 1-2: Killed
 5: Unbalanced or unexpected parenthesis or bracket.
 5: } 
 5: 
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: *** JOB 351227 ON cn253 CANCELLED AT 2016-09-22T14:37:37 ***
