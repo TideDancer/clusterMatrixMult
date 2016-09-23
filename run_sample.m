@@ -7,8 +7,8 @@ const = 1;
 matrix = 'high condition';
 cond_num = 10^5;
 
-r = 2^14;
-c = 2^14;
+r = 2^15;
+c = 2^15;
 
 % % build coherent matrix
 % Z = zeros(dim); I = eye(dim); O = ones(dim).*1e-8; 
@@ -31,32 +31,18 @@ c = 2^14;
 % B = gallery('randsvd', dim ,cond_num, 3);
 % disp('gallery(randsvd, dim ,cond_num, 3)');
 
-% ------- randn matrix ------
-A = randn(r,c);
-B = randn(r,c);
-
 %% ------- crazy matrix --------
 % A = gallery('sampling', dim);
 % B = gallery('chebspec',dim,1);
 % disp('gallery(sampling,dim),gallery(chebspec,dim,1)');
 
-disp('generating done');
-
-disp('direct mult');
-tic;
-C = A*B;
-toc;
-disp('-----------------------');
-A_norm = norm(A, 'fro');
-B_norm = norm(B, 'fro');
-AB_norm = A_norm * B_norm;
-C_norm = norm(C, 'fro');
-
 % start computing
+for sampleDim = 5:10
 sampleSize = 2^sampleDim;
 disp(sampleSize);
-disp('-----------------------');
-for k = 1:3
+disp('--------------------------------------------');
+disp('--------------------------------------------');
+for k = 1:5
   % ------- randn matrix ------
   clear A;
   clear B;
@@ -75,12 +61,6 @@ for k = 1:3
   C_norm = norm(C, 'fro');
 
   for i = 1:10
-    % ------- randn matrix ------
-    clear A;
-    clear B;
-    A = randn(r,c);
-    B = randn(r,c);
-  
     tic;
     C_approx1 = basicMatrixMult(A, B, 'column2norm', [sampleSize, delta]);
     toc;
@@ -88,4 +68,5 @@ for k = 1:3
     error1_norm = norm(error1, 'fro');
     disp(error1_norm/AB_norm);
   end
+end
 end
